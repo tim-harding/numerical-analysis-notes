@@ -9,14 +9,12 @@
 \usepackage{multicol}
 \usepackage[margin=1in]{geometry}
 
-\newcommand{\curly}[1]{\left\{ #1 \right\}}
-\newcommand{\round}[1]{\left( #1 \right)}
-\newcommand{\hard}[1]{\left[ #1 \right]}
-\newcommand{\C}[2]{
-    \begin{pmatrix}
-        #1 \\ #2
-    \end{pmatrix}
-}
+\newcommand{\curly}   [1]{\left\{      #1 \right\}}
+\newcommand{\round}   [1]{\left(       #1 \right)}
+\newcommand{\hard}    [1]{\left[       #1 \right]}
+\newcommand{\straight}[1]{\left|       #1 \right|}
+\newcommand{\ceiling} [1]{\left\lceil  #1 \right\rceil}
+\newcommand{\floor}   [1]{\left\lfloor #1 \right\rfloor}
 
 \begin{document}
 
@@ -68,6 +66,17 @@ Choose $c$ and $x$ in the interval to maximize the error.
 
 \section*{Solving Equations}
 
-\subsection*{The Bisection Method}
+\begin{center}
+    \begin{tabular}{l|cc}
+        Method & Convergence & Bracketed \\ \hline
+        Bisection & $\frac{e_{i+1}}{e_i} = \frac{1}{2}$ & Yes
+    \end{tabular}
+\end{center}
+
+\subsection*{Bisection}
+\begin{align*}
+    \epsilon &< \frac{b - a}{2^{n + 1}} \\
+    n &= \ceiling{\log_2 \round{\frac{b - a}{\epsilon} - 1}}
+\end{align*}
 
 \end{document}
