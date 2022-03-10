@@ -70,7 +70,8 @@ Choose $c$ and $x$ in the interval to maximize the error.
     \begin{tabular}{l|lc}
         Method & Convergence & Bracketed \\ \hline
         Bisection & $\frac{e_{i+1}}{e_i} = \frac{1}{2}$ & Yes \\
-        Fixed-point & $\frac{e_{i+1}}{e_i} = \straight{g'(r)}$ & No
+        Fixed-point & $\frac{e_{i+1}}{e_i} = \straight{g'(r)}$ & No \\
+        Newton's method & $\frac{e_{i+1}}{e_i^2} = \frac{f''(r)}{2f'(r)}$ or $\frac{e_{i+1}}{e_i} = \frac{m - 1}{m}$ & No
     \end{tabular}
 \end{center}
 
@@ -78,6 +79,16 @@ Choose $c$ and $x$ in the interval to maximize the error.
 \begin{align*}
     \epsilon &< \frac{b - a}{2^{n + 1}} \\
     n &= \ceiling{\log_2 \round{\frac{b - a}{\epsilon} - 1}}
+\end{align*}
+
+\subsection*{Fixed point}
+\begin{align*}
+    x_{i + 1} &= g(x)
+\end{align*}
+
+\subsection*{Newton's method}
+\begin{align*}
+    x_{i + 1} &= x_i - \frac{f(x_i)}{f'(x_i)}
 \end{align*}
 
 \end{document}
