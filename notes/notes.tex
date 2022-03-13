@@ -66,14 +66,20 @@ Choose $c$ and $x$ in the interval to maximize the error. The error term is the 
 
 \section*{Solving Equations}
 
+% TODO: Add next step formula to this table
+% Bottom doggy eared page with this
 \begin{center}
     \begin{tabular}{l|lc}
         Method & Convergence & Bracketed \\ \hline
         Bisection & $\frac{e_{i+1}}{e_i} = \frac{1}{2}$ & Yes \\
         Fixed-point & $\frac{e_{i+1}}{e_i} = \straight{g'(r)}$ & No \\
-        Newton's method & $\frac{e_{i+1}}{e_i^2} = \frac{f''(r)}{2f'(r)}$ or $\frac{e_{i+1}}{e_i} = \frac{m - 1}{m}$ & No
+        Newton's method & $\frac{e_{i+1}}{e_i^2} = \frac{f''(r)}{2f'(r)}$ or $\frac{e_{i+1}}{e_i} = \frac{m - 1}{m}$ & No \\
+        Secant & $\frac{e_{i+1}}{e_i^p} = \frac{f''(r)}{2f'(r)}$ & No \\
+        False position & ? & Yes
     \end{tabular}
 \end{center}
+
+$p = \frac{\sqrt{5} + 1}{2}$
 
 \subsection*{Bisection}
 Choose branch that preserves opposite sign.
@@ -124,5 +130,21 @@ To iterate:
 Remember that we can also solve a root by solving for $x$ when the setting the formula equal to zero.
 
 Converges when $\straight{g'(r)} > 1$.
+
+\section*{Runtime}
+Forward elimination:
+\begin{align*}
+    \frac{2}{3}n^3
+\end{align*}
+
+Backward substitution:
+\begin{align*}
+    n^2
+\end{align*}
+
+\begin{align*}
+    \sum_{i=1}^n i &= \frac{1}{2}n (n + 1) \\
+    \sum_{i=1}^n i^2 &= \frac{1}{6} n (n + 1) (2n + 1)
+\end{align*}
 
 \end{document}
