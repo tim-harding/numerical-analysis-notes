@@ -56,13 +56,13 @@ Given the continuous function $f$ and $y \in \mathbb{R}$ such that $f(a) \leq y 
 \subsection*{Taylor Polynomials}
 $i$-term Taylor polynomial:
 \begin{align*}
-    \sum_{i=0}^n \frac{f^{(i)}(x_0) \times (x - x_0)}{i!}
+    P_3 &= \sum_{i=0}^n \frac{f^{(i)}(x_0) \times (x - x_0)}{i!}
 \end{align*}
 Maximum error term:
 \begin{align*}
-    \frac{f^{(n)}(c) \times (x - x_0)^i}{n!}
+    E_n &= \frac{f^{(n)}(c) \times (x - x_0)^i}{n!}
 \end{align*}
-Choose $c$ and $x$ in the interval to maximize the error.
+Choose $c$ and $x$ in the interval to maximize the error. The error term is the next n after the order of the Taylor polynomial.
 
 \section*{Solving Equations}
 
@@ -76,6 +76,7 @@ Choose $c$ and $x$ in the interval to maximize the error.
 \end{center}
 
 \subsection*{Bisection}
+Choose branch that preserves opposite sign.
 \begin{align*}
     \epsilon &< \frac{b - a}{2^{n + 1}} \\
     n &= \ceiling{\log_2 \round{\frac{b - a}{\epsilon} - 1}}
@@ -90,5 +91,38 @@ Choose $c$ and $x$ in the interval to maximize the error.
 \begin{align*}
     x_{i + 1} &= x_i - \frac{f(x_i)}{f'(x_i)}
 \end{align*}
+
+Simple root if $f'(x) \neq 0$, multiple root otherwise.
+
+Multiplicity is first $n$ such $f^{(n)}(r) \neq 0$.
+
+Stop when $\straight{x_{n+1} - x_n} < \epsilon$ or $\straight{f(x_n)} < \epsilon$.
+
+\subsection*{Secant}
+At each step, replace the older x with the new one.
+
+\begin{align*}
+    x_2 &= x_0 - \frac{f(x_0)\ (x_1 - x_0)}{f(x_1) - f(x_0)}
+\end{align*}
+
+\subsection*{False Position}
+Same as secant method but bracketed. Pick the interval that makes the sign change.
+\begin{align*}
+    c &= a - \frac{f(a)\ (b - a)}{f(b) - f(a)}
+\end{align*}
+
+\subsection*{Fixed point}
+To find roots:
+\begin{align*}
+    0 = f(x) \rightarrow x = g(x)
+\end{align*}
+
+To iterate:
+\begin{align*}
+    x_{i+1} &= g(x_i)
+\end{align*}
+Remember that we can also solve a root by solving for $x$ when the setting the formula equal to zero.
+
+Converges when $\straight{g'(r)} > 1$.
 
 \end{document}
